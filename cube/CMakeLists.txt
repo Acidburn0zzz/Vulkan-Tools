@@ -99,10 +99,10 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
             message( FATAL_ERROR "Selected XLIB for cube build but not building Xlib support" )
         endif()
         set(CUBE_INCLUDE_DIRS
-            ${X11_INCLUDE_DIR}
+            ${X11_XCB_INCLUDE_DIR}
             ${CUBE_INCLUDE_DIRS}
         )
-        link_libraries(${X11_LIBRARIES})
+        link_libraries(${X11_XCB_LIBRARIES})
         add_definitions(-DVK_USE_PLATFORM_XLIB_KHR)
     elseif(CUBE_WSI_SELECTION STREQUAL "WAYLAND")
         if (NOT BUILD_WSI_WAYLAND_SUPPORT)
